@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { NumActionType } from '../../store/action/num.actions';
 import * as fromSelect from '../../store/selector/selectors';
-import { Observable } from 'rxjs';
-//import { numReducer } from '../../store/reducer/num.reducer';
+import * as fromAction from '../../store/action/num.actions';
+// import { numReducer } from '../../store/reducer/num.reducer';
 
 @Component({
   selector: 'app-counter-num',
@@ -11,40 +10,47 @@ import { Observable } from 'rxjs';
   styleUrls: ['./counter-num.component.scss']
 })
 export class CounterNumComponent implements OnInit {
-  num: Number;
-  counter$: Observable<any>;
-  counter
-
-  constructor(private _store:Store<any>) {
-    /*this.counter$ = this._store.select('numReducer').subscribe(mNum => {    //涉及到rxjs。    
-      console.log(mNum.numReducer);
-      this.num = mNum.numReducer;
-    });*/
-    /*this._store.select(fromSelect.getCount).subscribe(res=>{
-      console.log(res);
-      this.counter = res
-    })*/
-   }
-    
-  ngOnInit() {
-    this.counter$ = this._store.select(fromSelect.getCount)
+  title: String = 'CounterNumComponent';
+  num: number;
+  addNumber = 1;
+  subNumber = 1;
+  counter$;
+  counter;
+  constructor(private _store: Store<any>) {
+    this.counter$ = this._store.select(fromSelect.getCount);
+    // any change you will be notified, if you select the reducer directly.
+    // Highly not recommend this way.
+    // this.counter = this._store.select('reducer').subscribe(res => {
+    //   console.log(res.counter);
+    // });
   }
 
-  public add() {
-    console.log('add');
-    this._store.dispatch({          //調用dispatch觸發添加redurces
-      type: NumActionType.add
-    });
+  ngOnInit() {}
+
+  add() {
+    // this._store.dispatch({
+    //   type: NumActionType.add,
+    //   payload: {
+    //     data: this.checkNum(this.addNumber)
+    //   }
+    // });
+    this._store.dispatch(new fromAction.ADD({data: this.checkNum(this.addNumber)}));
   }
-  
-  public sub() {
-    console.log('sub');
-    this._store.dispatch({          //調用dispatch觸發添加redurces
-      type: NumActionType.subtract
-    });
+  sub() {
+    // this._store.dispatch({
+    //   type: NumActionType.subtract,
+    //   payload: {
+    //     data: this.checkNum(this.subNumber)
+    //   }
+    // });
+    this._store.dispatch(new fromAction.SUB({data: this.checkNum(this.subNumber)}));
   }
- 
-  ngOnDestroy() {
-    //this.counter$.unsubscribe();
+  checkNum(num) {
+    let res = 1;
+    if (Number(num) !== NaN) {
+      res = Number(num);
+    }
+    return res;
   }
 }
+

@@ -1,28 +1,26 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule } from '@angular/forms';
-import { CounterNumComponent } from './counter-num.component';
+
+import { DisplayComponent } from './display.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from '../../store/selector/selectors';
 
-
-describe('CounterNumComponent', () => {
-  let component: CounterNumComponent;
-  let fixture: ComponentFixture<CounterNumComponent>;
+describe('DisplayComponent', () => {
+  let component: DisplayComponent;
+  let fixture: ComponentFixture<DisplayComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        FormsModule,
         StoreModule.forRoot({}),
         StoreModule.forFeature('reducer', reducers),
       ],
-      declarations: [ CounterNumComponent ]
+      declarations: [ DisplayComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CounterNumComponent);
+    fixture = TestBed.createComponent(DisplayComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -6,9 +6,9 @@
     <a routerLink="/">Back</a>
 </div> -->
 <div>
-    <input (click)="add()" value="+" type="button">
-        <p>{{counter$ |async}}</p>
-    <input (click)="sub()" value="-" type="button">
+    <h2>{{title}}</h2>
+    <input (click)="add()" value="+" type="button"><input type="tel" [(ngModel)]="addNumber">
+        <p>Current: {{counter$ |async}}</p>
+    <input (click)="sub()" value="-" type="button"><input type="tel" [(ngModel)]="subNumber">
     <br/>
-    <a routerLink="/">Back</a>
 </div>

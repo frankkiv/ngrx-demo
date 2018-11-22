@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CounterNumComponent } from './component/counter-num/counter-num.component';
+import { ContainerComponent } from './container/container.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: CounterNumComponent,
+    component: ContainerComponent,
   }
 ];
 

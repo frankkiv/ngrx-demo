@@ -1,13 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
-import { CounterNumComponent } from './counter-num.component';
 import { StoreModule } from '@ngrx/store';
-import { reducers } from '../../store/selector/selectors';
 
+import { ContainerComponent } from './container.component';
+import { DisplayComponent } from '../component/display/display.component';
+import { CounterNumComponent } from '../component/counter-num/counter-num.component';
+import { reducers } from '../store/selector/selectors';
 
-describe('CounterNumComponent', () => {
-  let component: CounterNumComponent;
-  let fixture: ComponentFixture<CounterNumComponent>;
+describe('ContainerComponent', () => {
+  let component: ContainerComponent;
+  let fixture: ComponentFixture<ContainerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -16,13 +18,13 @@ describe('CounterNumComponent', () => {
         StoreModule.forRoot({}),
         StoreModule.forFeature('reducer', reducers),
       ],
-      declarations: [ CounterNumComponent ]
+      declarations: [ ContainerComponent, DisplayComponent, CounterNumComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CounterNumComponent);
+    fixture = TestBed.createComponent(ContainerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

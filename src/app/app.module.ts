@@ -1,11 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { StoreModule, MetaReducer } from '@ngrx/store';
+import { storeFreeze } from 'ngrx-store-freeze';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+export const metaReducers: Array<MetaReducer<any>> = [storeFreeze];
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DemoListComponent } from './demo-list/demo-list.component';
-import { StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({}),
+    StoreModule.forRoot({} , { metaReducers }),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
     }),
