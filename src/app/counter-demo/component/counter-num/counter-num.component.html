@@ -1,0 +1,14 @@
+<!-- <div>
+    <input (click)="add()" value="+" type="button">
+    <p>{{num.count}}</p>
+    <input (click)="sub()" value="-" type="button">
+    <br/>
+    <a routerLink="/">Back</a>
+</div> -->
+<div>
+    <input (click)="add()" value="+" type="button">
+        <p>{{counter$ |async}}</p>
+    <input (click)="sub()" value="-" type="button">
+    <br/>
+    <a routerLink="/">Back</a>
+</div>
