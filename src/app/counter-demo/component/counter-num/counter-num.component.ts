@@ -46,11 +46,7 @@ export class CounterNumComponent implements OnInit {
     this._store.dispatch(new fromAction.SUB({data: this.checkNum(this.subNumber)}));
   }
   checkNum(num) {
-    let res = 1;
-    if (Number(num) !== NaN) {
-      res = Number(num);
-    }
-    return res;
+    return isNaN(num) ? 0 : Number(num);
   }
 }
 

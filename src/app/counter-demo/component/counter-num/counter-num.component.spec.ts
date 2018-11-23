@@ -4,6 +4,8 @@ import { CounterNumComponent } from './counter-num.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from '../../store/selector/selectors';
 
+import { MatCardModule, MatGridListModule, MatButtonModule, MatInputModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('CounterNumComponent', () => {
   let component: CounterNumComponent;
@@ -12,6 +14,11 @@ describe('CounterNumComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        BrowserAnimationsModule,
+        MatCardModule,
+        MatGridListModule,
+        MatButtonModule,
+        MatInputModule,
         FormsModule,
         StoreModule.forRoot({}),
         StoreModule.forFeature('reducer', reducers),
