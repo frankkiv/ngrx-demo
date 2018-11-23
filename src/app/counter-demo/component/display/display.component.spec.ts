@@ -7,7 +7,6 @@ import { reducers } from '../../store/selector/selectors';
 import { MatCardModule, MatGridListModule, MatButtonModule, MatInputModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
 describe('DisplayComponent', () => {
   let component: DisplayComponent;
   let fixture: ComponentFixture<DisplayComponent>;
