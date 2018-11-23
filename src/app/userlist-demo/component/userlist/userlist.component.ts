@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserListService } from '../../services/userlist.services';
 import * as featureActions from '../../store/actions/userlist.actions';
+import * as faetureSelectors from '../../store/selectors/userlist.selector';
 import { Store } from '@ngrx/store';
 
 @Component({
@@ -9,6 +10,7 @@ import { Store } from '@ngrx/store';
   styleUrls: ['./userlist.component.scss']
 })
 export class UserlistComponent implements OnInit {
+  datalist$;
 
   constructor(private service: UserListService, private store$: Store<any>) { }
 
@@ -17,6 +19,9 @@ export class UserlistComponent implements OnInit {
     this.store$.dispatch(
       new featureActions.LoadRequestAction()
     );
+    this.datalist$ = this.store$.select(faetureSelectors.getDatas);
   }
+
+
 
 }

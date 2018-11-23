@@ -43,3 +43,7 @@ export function reducer(state = initialState, action: UserlistActions): State {
       return state;
   }
 }
+
+
+export const getData = (state: State) => state.datas;
+
