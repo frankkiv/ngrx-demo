@@ -21,7 +21,7 @@ export class UserlistEffects {
           .pipe(
             map(
               items => {
-                console.log(items);
+                // console.log(items);
                 return new featureActions.LoadSuccessAction({
                   items
                 });
@@ -30,6 +30,19 @@ export class UserlistEffects {
               catchError(error =>
                 of(new featureActions.LoadFailureAction({ error }))
               ))
+      )
+  );
+
+  @Effect()
+  contentUpdateEffect$: Observable<Action> = this.actions$.ofType<featureActions.ContentUpdateAction>(
+      featureActions.UserlistActionTypes.CONTENT_UPDATE
+    ).pipe(
+      switchMap(action => this.dataService.updateContent()
+          .pipe(
+            map(() => new featureActions.ContentUpdateSuccessAction({ data: null})),
+            catchError(error =>
+              of(new featureActions.ContentUpdateFailureAction({ error }))
+            ))
       )
   );
 }

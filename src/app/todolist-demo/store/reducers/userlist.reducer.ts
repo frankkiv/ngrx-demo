@@ -39,11 +39,41 @@ export function reducer(state = initialState, action: UserlistActions): State {
         isloading: false,
         error: action.payload.error,
       };
+
+    case UserlistActionTypes.CHECK_ITEM:
+      console.log(action.payload.data);
+      const newCompleted = !action.payload.data.completed;
+      const updatedDatas = [...state.datas];
+      const index = updatedDatas.findIndex(x => x.id === action.payload.data.id);
+      const newData = {
+        ...action.payload.data,
+        completed: newCompleted
+      };
+      updatedDatas[index] = newData;
+      return {
+        ...state,
+        isloading: false,
+        datas: updatedDatas
+      };
+
+    case UserlistActionTypes.CONTENT_UPDATE:
+      return {
+        ...state,
+        isloading: true,
+      };
+    case UserlistActionTypes.CONTENT_UPDATE_SUCCESS:
+      return {
+        ...state,
+        isloading: false,
+      };
+    case UserlistActionTypes.CONTENT_UPDATE_FAILURE:
+      return {
+        ...state,
+        isloading: false,
+        error: action.payload.error,
+      };
     default:
       return state;
   }
 }
-
-
 export const getData = (state: State) => state.datas;
-

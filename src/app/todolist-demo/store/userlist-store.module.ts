@@ -10,7 +10,7 @@ import { UserlistEffects } from './effects/userlist.effects';
   imports: [
     CommonModule,
     StoreModule.forFeature('userlistreducers', reducer),
-    EffectsModule.forFeature([UserlistEffects])
+    EffectsModule.forFeature([UserlistEffects]),
   ],
   providers: []
 })

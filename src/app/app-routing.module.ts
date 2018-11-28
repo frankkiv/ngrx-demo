@@ -4,7 +4,7 @@ import { DemoListComponent } from './demo-list/demo-list.component';
 
 const routes: Routes = [
   { path: 'counter', loadChildren: './counter-demo/counter-demo.module#CounterDemoModule' },
-  { path: 'userlist', loadChildren: './userlist-demo/userlist-demo.module#UserlistDemoModule' },
+  { path: 'todolist', loadChildren: './todolist-demo/todolist-demo.module#TodolistDemoModule' },
   { path: '', component: DemoListComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

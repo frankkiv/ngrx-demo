@@ -18,4 +18,12 @@ export class UserListService {
           return result;
         }));
   }
+
+  updateContent(): Observable<any> {
+    return new Observable(observer => {
+        setTimeout(() => {
+          return null;
+        }, 1000);
+      });
+  }
 }

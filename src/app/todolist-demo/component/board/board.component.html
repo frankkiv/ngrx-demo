@@ -1,0 +1,22 @@
+<!-- <p>TEST</p>
+<div *ngIf="analytics$ | async as item">
+  <p>Complete Items: </p>
+  <p>{{item.completed}}</p>
+  <p>Total Items: </p>
+  {{item.total}}
+  <p>complete ratio: </p>
+  <p>{{item.completed/item.total}}</p>
+</div> -->
+<div class="card">
+    <h5 class="card-header">{{title}}</h5>
+    <div class="card-body" *ngIf="analytics$ | async as item">
+      <h5 class="card-title">Total Ratio: {{item.completed/item.total|percent:'2.1-2'}}  ( {{item.completed}} / {{item.total}} )</h5>
+      <ul class="list-group" *ngFor="let item of userAnalytics$ | async">
+          <li class="list-group-item">
+            <h5> User {{item.userId}} : </h5>
+            <p>Complete ratio: </p>
+            <p>{{item.completed/item.total|percent:'2.1-2'}}  ( {{item.completed}} / {{item.total}} )</p>
+          </li>
+        </ul>
+    </div>
+</div>

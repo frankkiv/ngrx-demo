@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { FormsModule } from '@angular/forms';
-
 import { MatCardModule, MatGridListModule, MatButtonModule, MatInputModule } from '@angular/material';
 
 import { CounterDemoRoutingModule } from './counter-demo-routing.module';
