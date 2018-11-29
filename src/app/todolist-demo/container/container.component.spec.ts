@@ -4,12 +4,12 @@ import { ContainerComponent } from './container.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
-import { UserlistStoreModule } from '../store/userlist-store.module';
+import { TodolistStoreModule } from '../store/todolist-store.module';
 import { MatCheckboxModule, MatListModule, MatSelectModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
-import { UserlistComponent } from '../component/userlist/userlist.component';
+import { TodolistComponent } from '../component/todolist/todolist.component';
 import { BoardComponent } from '../component/board/board.component';
 
 export const NgMatModule = [
@@ -31,9 +31,9 @@ describe('ContainerComponent', () => {
         EffectsModule.forRoot([]),
         NgMatModule,
         FormsModule,
-        UserlistStoreModule,
+        TodolistStoreModule,
       ],
-      declarations: [ ContainerComponent, UserlistComponent, BoardComponent ]
+      declarations: [ ContainerComponent, TodolistComponent, BoardComponent ]
     })
     .compileComponents();
   }));

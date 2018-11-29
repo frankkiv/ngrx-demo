@@ -4,8 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { MatCheckboxModule, MatListModule, MatCardModule, MatSelectModule} from '@angular/material';
 
 import { TodolistDemoRoutingModule } from './todolist-demo-routing.module';
-import { UserlistComponent } from './component/userlist/userlist.component';
-import { UserlistStoreModule } from './store/userlist-store.module';
+import { TodolistComponent } from './component/todolist/todolist.component';
+import { TodolistStoreModule } from './store/todolist-store.module';
 import { BoardComponent } from './component/board/board.component';
 import { ContainerComponent } from './container/container.component';
 
@@ -16,12 +16,12 @@ export const NgMatModule = [
 ];
 
 @NgModule({
-  declarations: [UserlistComponent, BoardComponent, ContainerComponent],
+  declarations: [TodolistComponent, BoardComponent, ContainerComponent],
   imports: [
     CommonModule,
     FormsModule,
     NgMatModule,
-    UserlistStoreModule,
+    TodolistStoreModule,
     TodolistDemoRoutingModule,
   ]
 })

@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 
-export class UserListService {
+export class TodoListService {
   private API_BASE_URL = 'https://jsonplaceholder.typicode.com';
   constructor(private http: HttpClient) { }
   getUsers(): Observable<any> {

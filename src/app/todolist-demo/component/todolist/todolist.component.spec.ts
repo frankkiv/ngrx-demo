@@ -1,10 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserlistComponent } from './userlist.component';
+import { TodolistComponent } from './todolist.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { UserlistStoreModule } from '../../store/userlist-store.module';
+import { TodolistStoreModule } from '../../store/todolist-store.module';
 import { MatCheckboxModule, MatListModule, MatSelectModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,9 +15,9 @@ export const NgMatModule = [
   MatSelectModule
 ];
 
-describe('UserlistComponent', () => {
-  let component: UserlistComponent;
-  let fixture: ComponentFixture<UserlistComponent>;
+describe('TodolistComponent', () => {
+  let component: TodolistComponent;
+  let fixture: ComponentFixture<TodolistComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -28,15 +28,15 @@ describe('UserlistComponent', () => {
         EffectsModule.forRoot([]),
         NgMatModule,
         FormsModule,
-        UserlistStoreModule,
+        TodolistStoreModule,
       ],
-      declarations: [ UserlistComponent ]
+      declarations: [ TodolistComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UserlistComponent);
+    fixture = TestBed.createComponent(TodolistComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

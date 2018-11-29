@@ -1,4 +1,4 @@
-import * as fromReducer from '../../store/reducers/userlist.reducer';
+import * as fromReducer from '../../store/reducers/todolist.reducer';
 import { ActionReducerMap, createSelector, createFeatureSelector } from '@ngrx/store';
 
 export const getModuleState = createFeatureSelector<fromReducer.State>('userlistreducers');

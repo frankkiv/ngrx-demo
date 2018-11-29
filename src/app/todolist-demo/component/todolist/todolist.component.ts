@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import * as featureActions from '../../store/actions/userlist.actions';
-import * as featureSelectors from '../../store/selectors/userlist.selector';
+import * as featureActions from '../../store/actions/todolist.actions';
+import * as featureSelectors from '../../store/selectors/todolist.selector';
 import { Store, select } from '@ngrx/store';
 import { filter, map  } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-userlist',
-  templateUrl: './userlist.component.html',
-  styleUrls: ['./userlist.component.scss']
+  selector: 'app-todolist',
+  templateUrl: './todolist.component.html',
+  styleUrls: ['./todolist.component.scss']
 })
-export class UserlistComponent implements OnInit {
+export class TodolistComponent implements OnInit {
   title = 'TODO List Componet';
   datalist$;
   userdatas$;

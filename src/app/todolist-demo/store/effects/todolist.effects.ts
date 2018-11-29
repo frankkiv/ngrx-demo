@@ -2,19 +2,19 @@ import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Observable, of } from 'rxjs';
 
-import { UserListService } from '../../services/userlist.services';
-import * as featureActions from '../actions/userlist.actions';
+import { TodoListService } from '../../services/todolist.services';
+import * as featureActions from '../actions/todolist.actions';
 import { startWith, switchMap, map, catchError } from 'rxjs/operators';
 import { Action } from '@ngrx/store';
 
 @Injectable()
-export class UserlistEffects {
+export class TodolistEffects {
 
-  constructor(private dataService: UserListService, private actions$: Actions) {}
+  constructor(private dataService: TodoListService, private actions$: Actions) {}
 
   @Effect()
   loadRequestEffect$: Observable<Action> = this.actions$.ofType<featureActions.LoadRequestAction>(
-      featureActions.UserlistActionTypes.LOAD_REQUEST
+      featureActions.TodolistActionTypes.LOAD_REQUEST
     ).pipe(
       // startWith(new featureActions.LoadRequestAction()),
       switchMap(action => this.dataService.getUsers()
@@ -35,7 +35,7 @@ export class UserlistEffects {
 
   @Effect()
   contentUpdateEffect$: Observable<Action> = this.actions$.ofType<featureActions.ContentUpdateAction>(
-      featureActions.UserlistActionTypes.CONTENT_UPDATE
+      featureActions.TodolistActionTypes.CONTENT_UPDATE
     ).pipe(
       switchMap(action => this.dataService.updateContent()
           .pipe(

@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BoardComponent } from './board.component';
 import { MatCheckboxModule, MatListModule, MatSelectModule } from '@angular/material';
-import { UserlistStoreModule } from '../../store/userlist-store.module';
+import { TodolistStoreModule } from '../../store/todolist-store.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
@@ -24,7 +24,7 @@ describe('BoardComponent', () => {
         EffectsModule.forRoot([]),
         HttpClientModule,
         NgMatModule,
-        UserlistStoreModule,
+        TodolistStoreModule,
       ],
       declarations: [ BoardComponent ]
     })

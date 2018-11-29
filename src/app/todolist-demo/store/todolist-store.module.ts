@@ -3,15 +3,15 @@ import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
-import { reducer } from './reducers/userlist.reducer';
-import { UserlistEffects } from './effects/userlist.effects';
+import { reducer } from './reducers/todolist.reducer';
+import { TodolistEffects } from './effects/todolist.effects';
 
 @NgModule({
   imports: [
     CommonModule,
     StoreModule.forFeature('userlistreducers', reducer),
-    EffectsModule.forFeature([UserlistEffects]),
+    EffectsModule.forFeature([TodolistEffects]),
   ],
   providers: []
 })
-export class UserlistStoreModule {}
+export class TodolistStoreModule {}

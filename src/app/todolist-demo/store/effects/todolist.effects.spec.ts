@@ -2,15 +2,15 @@ import { TestBed, inject } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable } from 'rxjs';
 
-import { UserlistEffects } from './userlist.effects';
-import { UserlistStoreModule } from '../userlist-store.module';
+import { TodolistEffects } from './todolist.effects';
+import { TodolistStoreModule } from '../todolist-store.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 
-describe('UserlistEffects', () => {
+describe('TodolistEffects', () => {
   let actions$: Observable<any>;
-  let effects: UserlistEffects;
+  let effects: TodolistEffects;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -18,15 +18,15 @@ describe('UserlistEffects', () => {
         HttpClientModule,
         StoreModule.forRoot({}),
         EffectsModule.forRoot([]),
-        UserlistStoreModule,
+        TodolistStoreModule,
       ],
       providers: [
-        UserlistEffects,
+        TodolistEffects,
         provideMockActions(() => actions$)
       ]
     });
 
-    effects = TestBed.get(UserlistEffects);
+    effects = TestBed.get(TodolistEffects);
   });
 
   it('should be created', () => {

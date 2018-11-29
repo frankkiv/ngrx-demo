@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as featureActions from '../../store/actions/userlist.actions';
-import * as featureSelectors from '../../store/selectors/userlist.selector';
+import * as featureActions from '../../store/actions/todolist.actions';
+import * as featureSelectors from '../../store/selectors/todolist.selector';
 import { Store, select } from '@ngrx/store';
 import { map, filter, take } from 'rxjs/operators';
 
