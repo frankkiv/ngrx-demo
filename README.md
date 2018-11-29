@@ -1,6 +1,6 @@
 
 # NgrxDemo
-## Counter
+## Counter demo
 > Basic sample to show how different component sync the shared data in NGRX mechanism.
 * define add, subtract action
 * define reducer to handle actions and process the data
@@ -9,7 +9,7 @@
 * component subscribe the data via selector
 * Once data changed preview of the component changed
  
-## Todo list
+## Todolist demo
 > Sample for using parameterized selectors.
 
 ```javascript
@@ -40,7 +40,7 @@ this.userlist$ = this.store$.pipe(
 this.userdatas$ = this.store$.pipe(select(featureSelectors.getUserDatas));
 ```
 ```html
-<!-- ----template.html---- -->
+<!-- template.html -->
 
 <!-- subscribe the users and choose the select user -->
 <mat-select placeholder="Select User ID" [(value)]="selectedUser">
