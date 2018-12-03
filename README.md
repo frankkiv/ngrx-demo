@@ -1,31 +1,28 @@
-
-# NgrxDemo
-## Counter demo
+# Ngrx-Demo 
+## Counter
 > Basic sample to show how different component sync the shared data in NGRX mechanism.
 * define add, subtract action
-* define reducer to handle actions and process the data
+* define reducer to handle the action and process the data
 * define selector to be the interface between componet and reducer
-* component dispatch the action with payload data to reducer
+* component dispatch the action with payload data
 * component subscribe the data via selector
 * Once data changed preview of the component changed
  
-## Todolist demo
+## TODO LIST
 > Sample for using parameterized selectors.
 
+```Selector.ts```
 ```javascript
-// ----Selector.ts----
-
 // return the data 
-export const getDatas = createSelector(getCountState, fromReducer.getData);
+export const getDatasArray = createSelector(getState, fromReducer.selectAllTodos);
 
 // return the function, and it's allowed to put parameter in 
-export const getUserDatas = createSelector(getDatas, datas => (props) => {
+export const getUserDatas = createSelector(getDatasArray, datas => (props) => {
     return props === 'All' ? datas : datas.filter(item => item.userId === props);
 });
 ```
+```Component.ts```
 ```javascript
-// ----component.ts----
-
 // subscribe the users and add All to the top of return array
 this.userlist$ = this.store$.pipe(
       select(featureSelectors.getUsers),
@@ -39,9 +36,8 @@ this.userlist$ = this.store$.pipe(
 // subscribe the userdata 
 this.userdatas$ = this.store$.pipe(select(featureSelectors.getUserDatas));
 ```
+```template.html```
 ```html
-<!-- template.html -->
-
 <!-- subscribe the users and choose the select user -->
 <mat-select placeholder="Select User ID" [(value)]="selectedUser">
     <mat-option *ngFor="let user of userlist$ | async" [value]="user.userId">
@@ -54,7 +50,27 @@ this.userdatas$ = this.store$.pipe(select(featureSelectors.getUserDatas));
               'list-group-item-danger': !item.completed
             }" (click)="checkItem(item)">
 ```
+> Sample for using ngrx/entity to maintain the data source.
 
+```reducer.ts```
+```javascript
+export interface DataState {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
+}
+
+export interface State extends EntityState<DataState> {
+  isloading: boolean;
+  error: string;
+}
+export const adapter: EntityAdapter<DataState> = createEntityAdapter<DataState>({});
+export const initialState: State = adapter.getInitialState({
+  isloading: false,
+  error: null
+});
+```
 ## Development server
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.4.
 

@@ -99,12 +99,9 @@ const {
 
 // select the array of Todo ids
 export const selectTodoIds = selectIds;
-
 // select the dictionary of user entities
 export const selectTodosEntities = selectEntities;
-
 // select the array of users
 export const selectAllTodos = selectAll;
-
 // select the total user count
 export const selectTodoTotal = selectTotal;
