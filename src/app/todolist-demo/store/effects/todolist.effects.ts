@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { Observable, of } from 'rxjs';
+import { Observable, of, timer } from 'rxjs';
 
 import { TodoListService } from '../../services/todolist.services';
 import * as featureActions from '../actions/todolist.actions';
-import { startWith, switchMap, map, catchError } from 'rxjs/operators';
+import { startWith, switchMap, map, catchError, mapTo } from 'rxjs/operators';
 import { Action } from '@ngrx/store';
 
 @Injectable()
@@ -17,6 +17,8 @@ export class TodolistEffects {
       featureActions.TodolistActionTypes.LOAD_REQUEST
     ).pipe(
       // startWith(new featureActions.LoadRequestAction()),
+      // setInterval 5sec polling again
+      // switchMap(action => timer(0, 5000).pipe(mapTo(action))),
       switchMap(action => this.dataService.getUsers()
           .pipe(
             map(
