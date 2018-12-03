@@ -11,7 +11,6 @@ import { filter, map  } from 'rxjs/operators';
 })
 export class TodolistComponent implements OnInit {
   title = 'TODO List Componet';
-  datalist$;
   userdatas$;
   userlist$;
   selectedUser = null;
@@ -23,20 +22,19 @@ export class TodolistComponent implements OnInit {
       new featureActions.LoadRequestAction()
     );
 
-    // this.datalist$ = this.store$.select(featureSelectors.getDatas);
-    this.userdatas$ = this.store$.pipe(select(featureSelectors.getUserDatas));
+
     // get user list and add All in the top of array
     this.userlist$ = this.store$.pipe(
       select(featureSelectors.getUsers),
       map((items) => {
-        console.log(items);
+        // console.log(items);
         items.unshift({userId: 'All'});
         return items;
       }
     ));
+    this.userdatas$ = this.store$.pipe(select(featureSelectors.getUserDatas));
     // set default query to all
     this.selectedUser = 'All';
-
   }
 
   checkItem(item) {
