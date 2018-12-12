@@ -1,0 +1,45 @@
+.circle_in_green{
+    width:12px;height:12px; //正圓形，所以寬與高都設一樣
+    border-radius:999em;
+    background-color:green;
+}
+.circle_in_red{
+    width:12px;height:12px; //正圓形，所以寬與高都設一樣
+    border-radius:999em;
+    background-color:red;
+}
+.card-buttons {
+    flex-wrap: wrap;
+
+    button {
+      max-height: 36px;
+      margin: 2px;
+      mat-icon {
+        margin-right: 10px;
+        align-self: center;
+      }
+    }
+}
+.statuscell {
+   width:100%;
+   height:100%;
+   text-align: center;
+   
+    .onlinestatus {
+        background: rgb(66, 183, 42);
+        border-radius: 50%;
+        display: inline-block;
+        height: 8px;
+        width: 8px;
+    }
+    .offlinestatus {
+        background: rgb(180,180,180);
+        border-radius: 50%;
+        display: inline-block;
+        height: 8px;
+        width: 8px;
+    }
+    .icon{
+        margin-left:10px;
+    }
+}

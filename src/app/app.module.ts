@@ -12,6 +12,7 @@ export const metaReducers: Array<MetaReducer<any>> = [storeFreeze];
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DemoListComponent } from './demo-list/demo-list.component';
+import { reducers } from './userlist-demo/store/selectors/ui.selector';
 
 
 @NgModule({
@@ -24,7 +25,7 @@ import { DemoListComponent } from './demo-list/demo-list.component';
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-    StoreModule.forRoot({} , { metaReducers }),
+    StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states

@@ -71,6 +71,37 @@ export const initialState: State = adapter.getInitialState({
   error: null
 });
 ```
+
+## USER LIST
+> 1. Get user list from api server
+> 2. Update user status from socket.<span>io<span> notificitaion
+> 3. Preview by ngx-datatable (implement sorting , pagenation)
+
+socket.<span>io<span> & ngrx :
+![](https://i.imgur.com/0wHI1Vl.png)
+reference: https://github.com/avatsaev/angular-ngrx-socket-frontend
+
+#### How to create socket.<span>io<span> & api server  
+https://github.com/frankkiv/HapiSampleTest
+
+#### How to solve CROS domain issue
+```proxy.json```
+```javascript
+{
+  "/api/*": {
+    "target": "http://localhost:4200",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}
+```
+```shell
+ng serve --proxy-config proxy.conf.json
+```
+reference:
+https://github.com/angular/angular-cli/wiki/stories-proxy
+
 ## Development server
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.4.
 

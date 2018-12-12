@@ -1,0 +1,85 @@
+
+<div>
+    <div class="ard-buttons">
+      <input type='text'
+      style='padding:6px;margin:15px auto;width:30%;'
+      placeholder='Type to filter the name column...'
+      (keyup)='updateFilter($event)'/>
+      <button id="sendmsgButton" style="padding:6px;margin:15px;width:30%;border-radius: 6px;" mat-raised-button>
+            <mat-icon svgIcon="sendmsg"></mat-icon>
+            Notify online users 
+      </button>
+      </div>
+  <ngx-datatable
+    class="material"
+    [rows]="(user$ |async)(queryKeyword)"
+    [columns]="columns"
+    [sortType]="'single'"
+    [columnMode]="'flex'"
+    [headerHeight]="50"
+    [footerHeight]="50"
+    [rowHeight]="50"
+    [limit]='8'>
+    <ngx-datatable-column name="id" [flexGrow]="1">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          {{value}}
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="name" [flexGrow]="3">
+        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+          {{value}}
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="ip" [flexGrow]="2">
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value}}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="country" [flexGrow]="2">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              {{value}}
+            </ng-template>
+          </ngx-datatable-column>
+      <ngx-datatable-column name="onlinestatus" [flexGrow]="1">
+        <ng-template let-value="value" let-row="row" ngx-datatable-cell-template >  
+          <div class="statuscell" *ngIf="value===true else offline">
+            <span class="onlinestatus"></span>  
+            <mat-icon svgIcon="sendmsg" class="icon"></mat-icon>
+          </div>
+          <ng-template #offline>
+            <div class="statuscell">
+              <span class="offlinestatus"></span> 
+              <mat-icon class="icon"></mat-icon>
+            </div> 
+          </ng-template>
+        </ng-template>
+      </ngx-datatable-column>
+      
+
+      <ngx-datatable-footer>
+          <ng-template 
+            ngx-datatable-footer-template
+            let-rowCount="rowCount"
+            let-pageSize="pageSize"
+            let-selectedCount="selectedCount"
+            let-curPage="curPage"
+            let-offset="offset"
+            let-isVisible="isVisible">
+              <div class="page-count" *ngIf="(online$ |async)(queryKeyword) as item">
+                  Online: {{item.online}}, Totals: {{item.total}}
+              </div>
+              <datatable-pager
+                  [pagerLeftArrowIcon]="'datatable-icon-left'"
+                  [pagerRightArrowIcon]="'datatable-icon-right'"
+                  [pagerPreviousIcon]="'datatable-icon-prev'"
+                  [pagerNextIcon]="'datatable-icon-skip'"
+                  [page]="curPage"
+                  [size]="pageSize"
+                  [count]="rowCount"
+                  [hidden]="!((rowCount / pageSize) > 1)"
+                  (change)="table.onFooterPage($event)">
+              </datatable-pager>
+          </ng-template>
+        </ngx-datatable-footer>
+  </ngx-datatable>
+</div>

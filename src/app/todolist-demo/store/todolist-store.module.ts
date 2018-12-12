@@ -9,7 +9,7 @@ import { TodolistEffects } from './effects/todolist.effects';
 @NgModule({
   imports: [
     CommonModule,
-    StoreModule.forFeature('userlistreducers', reducer),
+    StoreModule.forFeature('todolistreducers', reducer),
     EffectsModule.forFeature([TodolistEffects]),
   ],
   providers: []

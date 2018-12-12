@@ -1,0 +1,22 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<nav class="nav has-shadow" id="top">
+    <div class="container">
+      <div class="nav-left">
+        <a class="nav-item" routerLink="/">
+          Angular Ngrx Socket
+          (<span [ngClass]="socketStatus$ | async"></span> <span style="color:black"> Room: {{roomStatus$|async}} </span>)
+        </a>
+      </div>
+      <span class="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+    </div>
+  </nav>
+  <section class="section">
+    <div class="container content">
+        <app-userlist></app-userlist>
+    </div>
+  </section>
+  
