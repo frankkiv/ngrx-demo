@@ -97,7 +97,7 @@ https://github.com/frankkiv/HapiSampleTest
 }
 ```
 ```shell
-ng serve --proxy-config proxy.conf.json
+ng serve --proxy-config proxy.json
 ```
 reference:
 https://github.com/angular/angular-cli/wiki/stories-proxy
